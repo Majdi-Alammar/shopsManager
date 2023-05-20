@@ -71,6 +71,23 @@ const ShopsList = () => {
             Parpershop
           </option>
         </select>
+        <label htmlFor="filterCitySelect">
+          <strong>Stadt Auswählen:</strong>
+        </label>
+        <select id="filterCatSelect" className="filterCatSelect small">
+          <option value="all" defaultValue>
+            All
+          </option>
+          <option value="Krefeld" defaultValue>
+            Krefeld
+          </option>
+          <option value="Düsseldorf" defaultValue>
+            Duesseldorf
+          </option>
+          <option value="Berlin" defaultValue>
+            Berlin
+          </option>
+        </select>
       </div>
       <div className="teaserContainer">{content}</div>
     </section>
