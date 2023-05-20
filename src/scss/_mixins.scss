@@ -1,0 +1,24 @@
+@keyframes fall {
+  from {
+    top: calc(100vh - 230px);
+  }
+
+  to {
+    top: -150px;
+  }
+
+}
+
+@keyframes changeCollor {
+  0% {
+    background-color: $green;
+  }
+
+  50% {
+    background-color: $black;
+  }
+
+  100% {
+    background-color: $light;
+  }
+}

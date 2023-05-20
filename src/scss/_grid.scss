@@ -1,0 +1,46 @@
+.row{
+    width: 100%;
+    max-width: $rowMaxWidth;
+    display: flex;
+    flex-grow: 1;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding:0px;
+    margin:auto;
+
+    .col{
+        width: 100%;
+        position: relative;
+        flex-grow: 1;
+        margin-left:$colPdding;
+        margin-right:$colPdding;
+        
+        &.col-6{
+            width: 100%;
+            max-width: calc(50% - ($colPdding*2));
+        }
+        &.col-3{
+            width: 100%;
+            max-width: calc(25% - ($colPdding*2));
+        }
+        &.col-4{
+            width: 100%;
+            max-width: calc(33% - ($colPdding*2));
+        }
+        &.col-8{
+            width: 100%;
+            max-width: calc(66% - ($colPdding*2));
+        }
+        &.col-9{
+            width: 100%;
+            max-width: calc(75% - ($colPdding*2));
+        }
+    }
+}
+.flexStart{
+    display: flex;
+    justify-content: flex-start;
+    >*{
+        padding-right:$colPdding*2
+    }
+}

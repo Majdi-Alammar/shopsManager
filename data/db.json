@@ -1,0 +1,314 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "gender": "male",
+      "name": "Max",
+      "lastName": "Mustermann",
+      "username": "M",
+      "password": "M",
+      "address": {
+        "housNo": "36",
+        "street": "hundenstraße",
+        "postal": "36548",
+        "city": "Krefeld",
+        "land": "Deutschland"
+      },
+      "contact": {
+        "email": "max1236@yahoo.com",
+        "phone": "004915536548746"
+      }
+    },
+    {
+      "id": 2,
+      "gender": "female",
+      "name": "Laura",
+      "lastName": "Zimmermann",
+      "username": "L",
+      "password": "L",
+      "address": {
+        "housNo": "20",
+        "street": "Lewerentzstarße",
+        "postal": "47798",
+        "city": "Krefeld",
+        "land": "Deutschland"
+      },
+      "contact": {
+        "email": "laure-zimmer@yahoo.com",
+        "phone": "00491698885436547"
+      }
+    }
+  ],
+  "shops": [
+    {
+      "id": 1,
+      "userId": 1,
+      "name": "Sport & Leben",
+      "category": "Kleidung Laden",
+      "slogan": "Kleidung für jeden Anlass",
+      "address": {
+        "street": "hundenstraße",
+        "housNo": "36",
+        "postal": "36548",
+        "city": "Krefeld",
+        "land": "Deutschland"
+      },
+      "contact": {
+        "email": "max1236@yahoo.com",
+        "phone": "004915536548746"
+      },
+      "aboutUs": {
+        "aboutTitle": "Über Sport & Leben",
+        "aboutContent": "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo."
+      },
+      "headerPic": {
+        "picTitle": "header Bild Title",
+        "picUrl": "url",
+        "headerClaim": {
+          "claimTitle": "Willkommen beim Sport & Leben",
+          "claimSubTitle": "Wo Sie alles finden kann"
+        }
+      },
+      "products": [
+        {
+          "id": 0,
+          "name": "Schuhe",
+          "price": "50",
+          "description": "Addidas - schwarze Schuhe siez: 43"
+        },
+        {
+          "id": 1,
+          "name": "Kleid",
+          "price": 199.99,
+          "description": "Ein schönes rotes kurzes Kleid"
+        },
+        {
+          "id": 2,
+          "name": "Teshert",
+          "price": "40",
+          "description": "Weißes Teschert"
+        },
+        {
+          "id": 3,
+          "name": "Schuhe2",
+          "price": "40",
+          "description": "schuhe 2"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "userId": 1,
+      "name": "Karawan",
+      "category": "Supermarkt",
+      "slogan": "Alles was Sie brauchen!",
+      "address": {
+        "street": "Lewerentzstarße",
+        "housNo": "8",
+        "postal": "47798",
+        "city": "krefeld",
+        "land": "Deutschland"
+      },
+      "contact": {
+        "email": "karawan@yahoo.com",
+        "phone": "00365/45856724953"
+      },
+      "aboutUs": {
+        "aboutTitle": "Wir über uns",
+        "aboutContent": "In unserem Supermarkt finden Sie interessante türkische und arabische Waren Lebensmitteln , Obst, Gemüse und Fleisch.\n\nLorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."
+      },
+      "headerPic": {
+        "picTitle": "Karawan-Supermarkt",
+        "picUrl": "Images/shops/header/karawanSupermarkt1234",
+        "headerClaim": {
+          "claimTitle": "Herzlichen Willkommen in Karawan Supermarkt",
+          "claimSubTitle": "Türkische und arabische Waren für fairen Preis"
+        }
+      },
+      "products": [
+        {
+          "id": 0,
+          "name": "Apfel 1kg",
+          "price": 0.99,
+          "description": "Rot oder Gold mittelgroße Äpfel"
+        },
+        {
+          "id": 1,
+          "name": "Syrisches Bort",
+          "price": 0.6,
+          "description": "Frisches syrisches  Weißbrot 360g"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "userId": 1,
+      "name": "Hamm Hamm",
+      "category": "Restaurant",
+      "slogan": "Leckeres Essen im ruhigen Ort!",
+      "address": {
+        "street": "Prinz-Ferdinand str",
+        "housNo": "17",
+        "postal": "47798",
+        "city": "krefeld",
+        "land": "Deutschland"
+      },
+      "contact": {
+        "email": "hamm-hamm@yahoo.com",
+        "phone": "01564587524"
+      },
+      "aboutUs": {
+        "aboutTitle": "Über Hamm Hamm",
+        "aboutContent": "Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. \n\nNam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. \n\nDuis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis. \n\nAt vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, At accusam aliquyam diam diam dolore dolores duo eirmod eos erat, et nonumy sed tempor et et invidunt justo labore Stet clita ea et gubergren, kasd magna no rebum. sanctus sea sed takimata ut vero voluptua. est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat. "
+      },
+      "headerPic": {
+        "picTitle": "Hamm Hamm",
+        "picUrl": "Images/shops/header/karawanSupermarkt1234",
+        "headerClaim": {
+          "claimTitle": "Herzlichen Willkommen beim Hamm Hamm",
+          "claimSubTitle": "Leckeres Essen im ruhigen Ort!"
+        }
+      },
+      "products": [
+        {
+          "id": 0,
+          "name": "Falalfel",
+          "price": "3.99",
+          "description": "Falafel - Vigan und lecker"
+        },
+        {
+          "id": 1,
+          "name": "Shauerma",
+          "price": "5.5",
+          "description": "Mit Hänchen oder Fleisch"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "userId": 2,
+      "name": "Come 2 Cut",
+      "category": "Parpershop",
+      "slogan": "Leidenschaft macht Kreativität",
+      "address": {
+        "street": "Bahnhofstraße",
+        "housNo": "2",
+        "postal": "47829 ",
+        "city": "krefeld",
+        "land": "Detuschland"
+      },
+      "contact": {
+        "email": "abotalal_86@yahoo.com",
+        "phone": "015755427651"
+      },
+      "aboutUs": {
+        "aboutTitle": "Come 2 Cut - Wir über uns",
+        "aboutContent": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. \n\nDuis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. "
+      },
+      "headerPic": {
+        "picTitle": "Come 2 Cut",
+        "picUrl": "Images/shops/header/karawanSupermarkt1234",
+        "headerClaim": {
+          "claimTitle": "Herzlichen Willkommen beim Come 2 Cut",
+          "claimSubTitle": "Leidenschaft macht Kreativität"
+        }
+      },
+      "products": [
+        {
+          "id": 0,
+          "name": "Für Kinder unter 12",
+          "price": "100",
+          "description": "Angebot für die Kinder"
+        },
+        {
+          "id": 1,
+          "name": "Für Damen",
+          "price": "50",
+          "description": "Schneiden und föhnen für Damen"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "userId": 2,
+      "name": "Damaskus",
+      "category": "Restaurant",
+      "slogan": "Orientalisches Essen am Rhein!",
+      "address": {
+        "street": "Prinz-Ferdinand str",
+        "housNo": "33",
+        "postal": "47798",
+        "city": "Düsseldorf",
+        "land": "Deutschland"
+      },
+      "contact": {
+        "email": "damaskus77@yahoo.com",
+        "phone": "015736548792"
+      },
+      "aboutUs": {
+        "aboutTitle": "Damaskus - Restaurant",
+        "aboutContent": "Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. \n\nNam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. \n\nDuis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis. \n\nAt vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, At accusam aliquyam diam diam dolore dolores duo eirmod eos erat, et nonumy sed tempor et et invidunt justo labore Stet clita ea et gubergren, kasd magna no rebum. sanctus sea sed takimata ut vero voluptua. est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat. "
+      },
+      "headerPic": {
+        "picTitle": "Herzlichen willkommen in Damaskus",
+        "picUrl": "Images/shops/header/karawanSupermarkt1234",
+        "headerClaim": {
+          "claimTitle": "Herzlichen willkommen in Damaskus",
+          "claimSubTitle": "Orientalisches Essen am Rhein!"
+        }
+      },
+      "products": [
+        {
+          "id": 0,
+          "name": "Tabuleh",
+          "price": "5.99",
+          "description": "Taboulé besteht aus glatter Petersilie und feinem Bulgur  sowie Tomaten, Frühlingszwiebeln oder Schalotten, Olivenöl, etwas Wasser und Zitronensaft"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "userId": 2,
+      "name": "fff",
+      "category": "Restaurant",
+      "slogan": "ffffffff fffffff ffffff",
+      "address": {
+        "street": "Lewerentzstarße",
+        "housNo": "60",
+        "postal": "47798",
+        "city": "krefeld",
+        "land": "Deutschland"
+      },
+      "contact": {
+        "email": "fff23@yahoo.com",
+        "phone": "015777737373737"
+      },
+      "aboutUs": {
+        "aboutTitle": "Lorem ipsum dolor sit amet,",
+        "aboutContent": "Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. \n\nNam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. \n\nDuis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis. \n\nAt vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, At accusam aliquyam diam diam dolore dolores duo eirmod eos erat, et nonumy sed tempor et et invidunt justo labore Stet clita ea et gubergren, kasd magna no rebum. sanctus sea sed takimata ut vero voluptua. est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat. "
+      },
+      "headerPic": {
+        "picTitle": "Hamm Hamm",
+        "picUrl": "Images/shops/header/karawanSupermarkt1234",
+        "headerClaim": {
+          "claimTitle": "Herzlichen Wellkommen beim FFF",
+          "claimSubTitle": "Türkische und arabische Waren für fairen Preis"
+        }
+      },
+      "products": [
+        {
+          "id": 0,
+          "name": "Falalfel",
+          "price": "5.50",
+          "description": "Falafel - Vigan und lecker"
+        },
+        {
+          "id": 1,
+          "name": "Schauerma",
+          "price": "9.99",
+          "description": "Fleisch oder Hänschen"
+        }
+      ]
+    }
+  ]
+}

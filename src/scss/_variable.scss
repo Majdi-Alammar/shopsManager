@@ -1,0 +1,168 @@
+$mainColor: #234748;
+$secondaryColor: #d7bd9d;
+$black: rgb(26, 26, 26);
+$darkGray: rgb(37, 37, 37);
+$lightGray: rgb(133, 133, 133);
+$red: rgb(128, 5, 5);
+$green: rgb(5, 85, 5);
+$light: rgb(241, 241, 241);
+$span: rgb(139, 139, 139);
+
+$duration: 10s;
+
+$rowMaxWidth: 1400px;
+$colPdding: 18px;
+
+$baseDes: 20px;
+$basePdding: 20px;
+$containerPadding: 30px;
+
+$mainFont: "Roboto";
+$mainFontSize: 18px;
+$mainLineHeiht: 30px;
+
+$secondaryFont: "Fira Sans";
+$secondaryFontSize: 20px;
+$arabicLineHeiht: 32px;
+
+$h1FontSize: 40px;
+$h1LineHeight: 50px;
+
+$h2FontSize: 35px;
+$h2LineHeight: 40px;
+
+$h3FontSize: 30px;
+$h3LineHeight: 35px;
+
+$h4FontSize: 25px;
+$h4LineHeight: 30px;
+
+$h5FontSize: 22px;
+$h5LineHeight: 27px;
+
+$h6FontSize: 20px;
+$h6LineHeight: 25px;
+
+$radius: 4px;
+
+p,
+* {
+  font-family: $mainFont;
+  font-size: $mainFontSize;
+  line-height: $mainLineHeiht;
+  &.bold {
+    font-weight: 700 !important;
+  }
+  &.block {
+    display: block !important;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  font-family: $mainFont;
+  font-weight: 900;
+  color: $mainColor;
+  margin-bottom: 20px;
+  display: block;
+  span {
+    font-family: $secondaryFont;
+    display: inline;
+    font-size: 22px;
+    line-height: 30px;
+    font-weight: 300;
+    color: $span;
+    &.span4 {
+      font-size: 22px;
+      line-height: 35px;
+      font-weight: 400;
+      color: lighten($mainColor, 4);
+      i {
+        font-size: 20px;
+      }
+    }
+  }
+
+  &.noMargin {
+    margin-bottom: 0px;
+  }
+
+  &.onBG {
+    color: $light;
+  }
+  &.titleBlock {
+    width: 100%;
+  }
+  &.light,
+  .dark {
+    color: $light;
+    margin-bottom: 0px;
+  }
+  &.dark {
+    color: $darkGray;
+    margin-bottom: 0px;
+  }
+}
+
+h1,
+.h1 {
+  font-size: $h1FontSize;
+  line-height: $h1LineHeight;
+}
+
+h2,
+.h2 {
+  font-size: $h2FontSize;
+  line-height: $h2LineHeight;
+}
+
+h3,
+.h3 {
+  font-size: $h3FontSize;
+  line-height: $h3LineHeight;
+}
+h4,
+.h4 {
+  font-size: $h4FontSize;
+  line-height: $h4LineHeight;
+}
+h5,
+.h5 {
+  font-size: $h5FontSize;
+  line-height: $h5LineHeight;
+}
+h6,
+.h6 {
+  font-size: $h6FontSize;
+  line-height: $h6LineHeight;
+}
+
+.btn {
+  display: inline-block;
+  padding: $basePdding * 0.2 $basePdding * 2;
+  margin: $basePdding;
+  color: $light;
+  background-color: $darkGray;
+  text-decoration: none;
+  &.light {
+    background-color: $light;
+    border: 1px solid darken($light, 50);
+    padding: $basePdding * 0.2 $basePdding * 2 !important;
+    display: block;
+    color: $darkGray;
+    &:hover {
+      background-color: $darkGray;
+      color: $light !important;
+    }
+  }
+}
