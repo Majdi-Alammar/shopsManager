@@ -13,9 +13,9 @@ const ShopOhner = ({ userId }) => {
     <span>
       <strong>Besitzer:</strong>{" "}
       {ohner ? (
-        <Link className="inlineBlock" to={`/user/${userId}`}>
+        <p className="inlineBlock" to={`/user/${userId}`}>
           {ohner.name} {ohner.lastName}
-        </Link>
+        </p>
       ) : (
         "Unknown Ohner"
       )}

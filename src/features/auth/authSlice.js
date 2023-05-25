@@ -8,7 +8,7 @@ const authSlice = createSlice({
       state.currUser = user;
     },
     logOut: (state, action) => {
-      console.log("test");
+      // console.log("test");
       state.currUser = null;
     },
   },

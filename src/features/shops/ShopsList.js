@@ -8,7 +8,11 @@ import { useState, useEffect } from "react";
 const initialState = [];
 
 const ShopsList = () => {
-  const [category, setCategory] = useState("all");
+  // const [category, setCategory] = useState("all");
+  const [filterItems, setFilterItems] = useState({
+    category: "all",
+    city: "all",
+  });
 
   const {
     data: shops,
@@ -18,45 +22,66 @@ const ShopsList = () => {
     error,
   } = useGetShopsQuery("getShops");
   const orderedShopIds = useSelector(selectShopIds);
-  // console.log(orderedShopIds);
-  //console.log(shops ? shops : "No Shops");
+  // console.log(shops.entities);
+  // console.log(shops ? shops.entities : "No Shops");
   let content;
   if (isLoading) {
     content = <p>"Loading... "</p>;
   } else if (isSuccess) {
-    if (category === "all") {
-      content = orderedShopIds.map((shopId) => (
+    // console.log(filterItems);
+    if (filterItems.category === "all" && filterItems.city === "all") {
+      content = orderedShopIds;
+    } else if (filterItems.category === "all" && filterItems.city !== "all") {
+      content = orderedShopIds.filter(
+        (shopId) => shops.entities[shopId].address.city === filterItems.city
+      );
+    } else if (filterItems.category !== "all" && filterItems.city === "all") {
+      content = orderedShopIds.filter(
+        (shopId) => shops.entities[shopId].category === filterItems.category
+      );
+    } else {
+      content = orderedShopIds.filter(
+        (shopId) =>
+          shops.entities[shopId].category === filterItems.category &&
+          shops.entities[shopId].address.city === filterItems.city
+      );
+    }
+    if (content.length) {
+      content = content.map((shopId) => (
         <ShopsExcerpet key={shopId} shopId={shopId} />
       ));
     } else {
-      content = orderedShopIds.map((shopId) =>
-        //console.log(shops.entities[shopId])
-        shops.entities[shopId].category === category ? (
-          <ShopsExcerpet key={shopId} shopId={shopId} />
-        ) : (
-          ""
-        )
-      );
+      content = "Es gibt kein Ergebnis ...";
     }
   } else if (isError) {
     content = <p>{error}</p>;
   }
-  const onFilterByCat = (e) => {
-    setCategory(e.target.value);
+  const onFilter = (e, elem) => {
+    setFilterItems({
+      ...filterItems,
+      [elem]: e.target.value,
+    });
   };
+  const resetFilterItem = (e, key) => {
+    setFilterItems({
+      ...filterItems,
+      [key]: "all",
+    });
+  };
+
   return (
     <section>
       <div className="filterContainer">
-        <label htmlFor="filterCatSelect">
-          <strong>Kategorie Auswählen:</strong>
-        </label>
         <select
           id="filterCatSelect"
           className="filterCatSelect small"
-          onChange={onFilterByCat}
+          onChange={(e) => {
+            return onFilter(e, "category");
+          }}
+          value={filterItems.category}
         >
           <option value="all" defaultValue>
-            All
+            All Kategories
           </option>
           <option value="Kleidung Laden" defaultValue>
             Kleidung Laden
@@ -71,12 +96,17 @@ const ShopsList = () => {
             Parpershop
           </option>
         </select>
-        <label htmlFor="filterCitySelect">
-          <strong>Stadt Auswählen:</strong>
-        </label>
-        <select id="filterCatSelect" className="filterCatSelect small">
+
+        <select
+          id="filterCatSelect"
+          className="filterCatSelect small"
+          onChange={(e) => {
+            return onFilter(e, "city");
+          }}
+          value={filterItems.city}
+        >
           <option value="all" defaultValue>
-            All
+            All Städte
           </option>
           <option value="Krefeld" defaultValue>
             Krefeld
@@ -88,6 +118,23 @@ const ShopsList = () => {
             Berlin
           </option>
         </select>
+        <div className="filterItemsContainer">
+          {Object.keys(filterItems).map((key) => {
+            if (filterItems[key] !== "all") {
+              return (
+                <p key={filterItems[key]} className="filterItem">
+                  <span>{filterItems[key]}</span>
+                  <span
+                    onClick={(e) => resetFilterItem(e, key)}
+                    className="delete"
+                  >
+                    X
+                  </span>
+                </p>
+              );
+            }
+          })}
+        </div>
       </div>
       <div className="teaserContainer">{content}</div>
     </section>

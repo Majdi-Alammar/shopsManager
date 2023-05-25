@@ -6,7 +6,7 @@ import React from "react";
 
 const Header = () => {
   const user = useSelector(selectCurrentUser);
-  console.log(user);
+  // console.log(user);
   const isLogin = Boolean(user);
 
   const dispatch = useDispatch();

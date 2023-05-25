@@ -29,7 +29,7 @@ const EditShopForm = () => {
   const [name, setName] = useState();
   const [category, setCategory] = useState();
   const [slogan, setSlogan] = useState();
-  const [userId, setUserId] = useState("");
+  // const [userId, setUserId] = useState("");
 
   // Addresse
   const [housNo, setHousNo] = useState();
@@ -62,7 +62,7 @@ const EditShopForm = () => {
       setName(shop.name);
       setCategory(shop.category);
       setSlogan(shop.slogan);
-      setUserId(shop.userId);
+      // setUserId(shop.userId);
 
       // header Pic
       setPicTitle(shop.headerPic.picTitle);
@@ -108,7 +108,7 @@ const EditShopForm = () => {
   const onNameChanged = (e) => setName(e.target.value);
   const onCategoryChanged = (e) => setCategory(e.target.value);
   const onSloganChanged = (e) => setSlogan(e.target.value);
-  const onOhnerChanged = (e) => setUserId(e.target.value);
+  // const onOhnerChanged = (e) => setUserId(e.target.value);
 
   // Events: Addresse
   const onHousNoChanged = (e) => setHousNo(e.target.value);
@@ -161,25 +161,15 @@ const EditShopForm = () => {
   };
 
   const canSave =
-    [
-      name,
-      category,
-      slogan,
-      userId,
-      housNo,
-      street,
-      postal,
-      city,
-      email,
-      phone,
-    ].every(Boolean) && !isLoading;
+    [name, category, slogan, housNo, street, postal, city, email, phone].every(
+      Boolean
+    ) && !isLoading;
 
   const onSaveShopClicked = async () => {
     if (canSave) {
       try {
         await updateShop({
           id: shopId,
-          userId,
           name,
           category,
           slogan,
@@ -196,7 +186,6 @@ const EditShopForm = () => {
         setName("");
         setCategory("");
         setSlogan("");
-        setUserId("");
         navigate(`/shop/${shopId}`);
       } catch (err) {
         console.error("Faild to save the Shop", err);
@@ -218,7 +207,7 @@ const EditShopForm = () => {
       setName("");
       setCategory("");
       setSlogan("");
-      setUserId("");
+
       navigate("/");
     } catch (err) {
       console.error("Failed to delete the Shop");
@@ -271,11 +260,11 @@ const EditShopForm = () => {
             value={name}
             onChange={onNameChanged}
           />
-          <label htmlFor="shopOhner">Shop Ohner:</label>
+          {/* <label htmlFor="shopOhner">Shop Ohner:</label>
           <select id="shopOhner" value={userId} onChange={onOhnerChanged}>
             <option value=""></option>
             {usersOptions}
-          </select>
+          </select> */}
           <label htmlFor="shopCategory">Shop Category:</label>
           <select id="shopCategory" onChange={onCategoryChanged}>
             <option value="">Wählen Sie bitte</option>

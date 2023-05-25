@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAddNewShopMutation } from "./shopsSlice";
 import { useGetUsersQuery } from "../users/usersSlice";
+import { useSelector } from "react-redux";
+import { selectCurrentUser } from "../auth/authSlice";
 
 const AddShopForm = () => {
   const [addNewShop, { isLoading }] = useAddNewShopMutation();
@@ -37,14 +39,13 @@ const AddShopForm = () => {
   const [products, setProducts] = useState([]);
 
   // Ohner
-  const [userId, setUserId] = useState("");
-  const { data: users, isSuccess } = useGetUsersQuery("getUsers");
+  const userId = useSelector(selectCurrentUser).id;
 
   // All Events
   const onNameChanged = (e) => steName(e.target.value);
   const onCategoryChanged = (e) => setCategory(e.target.value);
   const onSloganChanged = (e) => setSlogan(e.target.value);
-  const onOhnerChanged = (e) => setUserId(e.target.value);
+  // const onOhnerChanged = (e) => setUserId(e.target.value);
 
   // Events: Addresse
   const onHousNoChanged = (e) => setHousNo(e.target.value);
@@ -132,7 +133,7 @@ const AddShopForm = () => {
         steName("");
         setCategory("");
         setSlogan("");
-        setUserId("");
+        // setUserId("");
         navigate("/");
       } catch (err) {
         console.error("Faild to save the Shop", err);
@@ -141,13 +142,13 @@ const AddShopForm = () => {
   };
 
   let usersOptions;
-  if (isSuccess) {
-    usersOptions = users.ids.map((id) => (
-      <option key={id} value={id}>
-        {users.entities[id].name}
-      </option>
-    ));
-  }
+  // if (isSuccess) {
+  //   usersOptions = users.ids.map((id) => (
+  //     <option key={id} value={id}>
+  //       {users.entities[id].name}
+  //     </option>
+  //   ));
+  // }
 
   const productsList = products.map((pro) => {
     return (
@@ -195,11 +196,11 @@ const AddShopForm = () => {
             value={name}
             onChange={onNameChanged}
           />
-          <label htmlFor="shopOhner">Shop Ohner*:</label>
+          {/* <label htmlFor="shopOhner">Shop Ohner*:</label>
           <select id="shopOhner" value={userId} onChange={onOhnerChanged}>
             <option value="">Wählen Sie bitte</option>
             {usersOptions}
-          </select>
+          </select> */}
           <label htmlFor="shopCategory">Shop Category*:</label>
           <select id="shopCategory" onChange={onCategoryChanged}>
             <option value="">wählen Sie bitte</option>

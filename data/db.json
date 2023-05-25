@@ -106,7 +106,7 @@
         "street": "Lewerentzstarße",
         "housNo": "8",
         "postal": "47798",
-        "city": "krefeld",
+        "city": "Krefeld",
         "land": "Deutschland"
       },
       "contact": {
@@ -150,7 +150,7 @@
         "street": "Prinz-Ferdinand str",
         "housNo": "17",
         "postal": "47798",
-        "city": "krefeld",
+        "city": "Krefeld",
         "land": "Deutschland"
       },
       "contact": {
@@ -187,14 +187,14 @@
     {
       "id": 7,
       "userId": 2,
-      "name": "Come 2 Cut",
+      "name": "Come2Cut",
       "category": "Parpershop",
       "slogan": "Leidenschaft macht Kreativität",
       "address": {
         "street": "Bahnhofstraße",
         "housNo": "2",
         "postal": "47829 ",
-        "city": "krefeld",
+        "city": "Krefeld",
         "land": "Detuschland"
       },
       "contact": {
@@ -263,6 +263,12 @@
           "name": "Tabuleh",
           "price": "5.99",
           "description": "Taboulé besteht aus glatter Petersilie und feinem Bulgur  sowie Tomaten, Frühlingszwiebeln oder Schalotten, Olivenöl, etwas Wasser und Zitronensaft"
+        },
+        {
+          "id": 1,
+          "name": "Falalfel",
+          "price": "3.99",
+          "description": "Falafel - Vigan und lecker"
         }
       ]
     },
@@ -276,7 +282,7 @@
         "street": "Lewerentzstarße",
         "housNo": "60",
         "postal": "47798",
-        "city": "krefeld",
+        "city": "Krefeld",
         "land": "Deutschland"
       },
       "contact": {
@@ -307,6 +313,81 @@
           "name": "Schauerma",
           "price": "9.99",
           "description": "Fleisch oder Hänschen"
+        }
+      ]
+    },
+    {
+      "userId": null,
+      "name": "sss",
+      "category": "Supermarkt",
+      "slogan": "ffffffffff",
+      "address": {
+        "street": "fffffffffffff",
+        "housNo": "fffff",
+        "postal": "ffffffffffffff",
+        "city": "ffffffffffffffffffffff",
+        "land": "fffffffffffff"
+      },
+      "contact": {
+        "email": "fffffffffff",
+        "phone": "fffffffffff"
+      },
+      "aboutUs": {
+        "aboutTitle": "fffffffffff",
+        "aboutContent": "fffffffffffff"
+      },
+      "headerPic": {
+        "picTitle": "f",
+        "picUrl": "fffffffffffff",
+        "headerClaim": {
+          "claimTitle": "fffffffffffff",
+          "claimSubTitle": "ffffffff"
+        }
+      },
+      "products": [
+        {
+          "id": 0,
+          "name": "ffff",
+          "price": "12",
+          "description": "ffffff"
+        }
+      ],
+      "id": 10
+    },
+    {
+      "id": 11,
+      "name": "dddddddd",
+      "category": "Restaurant",
+      "slogan": "ddddddddddddddd",
+      "address": {
+        "street": "ddddddddddd",
+        "housNo": "ddddddddddddddddddddddddd",
+        "postal": "dddddddddddd",
+        "city": "dddddddddddddd",
+        "land": "dddddddddddddd"
+      },
+      "contact": {
+        "email": "dddddddddddd",
+        "phone": "ddddddddd"
+      },
+      "aboutUs": {
+        "aboutTitle": "dddddddddddddd",
+        "aboutContent": "dddddddd"
+      },
+      "headerPic": {
+        "picTitle": "d",
+        "picUrl": "ddddddddd",
+        "headerClaim": {
+          "claimTitle": "dddddddddddddd",
+          "claimSubTitle": "dddddddddddddddddddddd"
+        }
+      },
+      "products": [
+        {
+          "id": 0,
+          "name": "dddddd",
+          "price": "4",
+          "description": "dddddddddd"
         }
       ]
     }
