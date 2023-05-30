@@ -9,7 +9,7 @@ import {
 } from "../users/usersSlice";
 import { selectCurrentUser } from "./authSlice";
 import { setCredentials } from "./authSlice";
-//import { useLoginMutation } from "./authApiSlice";
+import { Form, Button } from "react-bootstrap";
 
 const Login = () => {
   const userRef = useRef();
@@ -54,38 +54,44 @@ const Login = () => {
   const content = isLoading ? (
     <h1>Loading...</h1>
   ) : (
-    <section className="login">
-      <p
-        ref={errRef}
-        className={errMsg ? "errmsg" : "offscreen"}
-        aria-live="assertive"
-      >
-        {errMsg}
-      </p>
-      <h1>Mitglieder Login</h1>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="username">Username</label>
-        <input
-          type="text"
-          id="username"
-          ref={userRef}
-          value={username}
-          onChange={handleUserInput}
-          autoComplete="off"
-        ></input>
-
-        <label htmlFor="pasword">Password</label>
-        <input
-          type="text"
-          id="pasword"
-          value={pwd}
-          onChange={handlePwdInput}
-          required
-        ></input>
-
-        <button>Sign In</button>
-      </form>
-    </section>
+    <div className="row login">
+      <div className="col-lg-6 ">
+        <p
+          ref={errRef}
+          className={errMsg ? "errmsg" : "offscreen"}
+          aria-live="assertive"
+        >
+          {errMsg}
+        </p>
+        <h1>Mitglieder Login</h1>
+        <Form onSubmit={handleSubmit}>
+          <Form.Group controlId="username">
+            <Form.Label>Username</Form.Label>
+            <Form.Control
+              type="text"
+              ref={userRef}
+              value={username}
+              onChange={handleUserInput}
+              autoComplete="off"
+              required
+            />
+          </Form.Group>
+          <Form.Group controlId="pasword">
+            <Form.Label>Password</Form.Label>
+            <Form.Control
+              type="text"
+              ref={userRef}
+              value={pwd}
+              onChange={handlePwdInput}
+              required
+            />
+          </Form.Group>
+          <Button variant="primary" type="submit">
+            Anmelden
+          </Button>
+        </Form>
+      </div>
+    </div>
   );
 
   return content;

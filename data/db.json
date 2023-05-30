@@ -104,7 +104,7 @@
       "slogan": "Alles was Sie brauchen!",
       "address": {
         "street": "Lewerentzstarße",
-        "housNo": "8",
+        "housNo": "81",
         "postal": "47798",
         "city": "Krefeld",
         "land": "Deutschland"
@@ -129,7 +129,7 @@
         {
           "id": 0,
           "name": "Apfel 1kg",
-          "price": 0.99,
+          "price": "1.99",
           "description": "Rot oder Gold mittelgroße Äpfel"
         },
         {
@@ -217,7 +217,7 @@
         {
           "id": 0,
           "name": "Für Kinder unter 12",
-          "price": "100",
+          "price": "33",
           "description": "Angebot für die Kinder"
         },
         {
@@ -273,123 +273,148 @@
       ]
     },
     {
-      "id": 9,
-      "userId": 2,
-      "name": "fff",
+      "name": "GesuLecker",
       "category": "Restaurant",
-      "slogan": "ffffffff fffffff ffffff",
+      "slogan": "Alles gesund und Lecker",
+      "userId": 2,
       "address": {
-        "street": "Lewerentzstarße",
-        "housNo": "60",
-        "postal": "47798",
-        "city": "Krefeld",
-        "land": "Deutschland"
+        "street": "Hannsaalleestr.",
+        "housNo": "40",
+        "postal": "4040547 ",
+        "city": "Düsseldorf",
+        "land": "Deutschland",
+        "lat": "",
+        "long": ""
       },
       "contact": {
-        "email": "fff23@yahoo.com",
-        "phone": "015777737373737"
+        "email": "gesu-lecker.23@yahoo.com",
+        "phone": "0049 14844975439"
       },
       "aboutUs": {
-        "aboutTitle": "Lorem ipsum dolor sit amet,",
-        "aboutContent": "Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. \n\nNam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. \n\nDuis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis. \n\nAt vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, At accusam aliquyam diam diam dolore dolores duo eirmod eos erat, et nonumy sed tempor et et invidunt justo labore Stet clita ea et gubergren, kasd magna no rebum. sanctus sea sed takimata ut vero voluptua. est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat. "
+        "aboutTitle": "Wellkommen in GesuLecker",
+        "aboutContent": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. \n\nDuis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. \n\nUt wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. "
       },
       "headerPic": {
-        "picTitle": "Hamm Hamm",
-        "picUrl": "Images/shops/header/karawanSupermarkt1234",
+        "picTitle": "d",
+        "picUrl": "d",
         "headerClaim": {
-          "claimTitle": "Herzlichen Wellkommen beim FFF",
-          "claimSubTitle": "Türkische und arabische Waren für fairen Preis"
+          "claimTitle": "Alles gesund und Lecker",
+          "claimSubTitle": "Invidt ut labore et dolore magna aliquyam erat, sed diam voluptua"
         }
       },
       "products": [
         {
           "id": 0,
-          "name": "Falalfel",
-          "price": "5.50",
-          "description": "Falafel - Vigan und lecker"
+          "name": "Fattusch",
+          "price": "6.99",
+          "description": "Gemischte Gemüse wie Salat, Gurken, Tomaten und Zwiebeln  mit Oliven-Öl und Zitronen"
         },
         {
           "id": 1,
-          "name": "Schauerma",
-          "price": "9.99",
-          "description": "Fleisch oder Hänschen"
+          "name": "Bohnen mit Hähnchenbrust",
+          "price": "12",
+          "description": "Roten Bohnen mit Tierischem Fett, Tomatensüße, Zwiebeln und Hähnchenbrust"
         }
-      ]
+      ],
+      "id": 9
     },
     {
-      "userId": null,
-      "name": "sss",
-      "category": "Supermarkt",
-      "slogan": "ffffffffff",
+      "name": " FANTASTIC Damen & Herren Friseur",
+      "category": "Parpershop",
+      "slogan": "Gönnen Sie sich etwas",
+      "userId": 2,
       "address": {
-        "street": "fffffffffffff",
-        "housNo": "fffff",
-        "postal": "ffffffffffffff",
-        "city": "ffffffffffffffffffffff",
-        "land": "fffffffffffff"
+        "street": "Rheinstraße",
+        "housNo": "61",
+        "postal": "47799 ",
+        "city": "Krefeld",
+        "land": "Deutschland",
+        "lat": "",
+        "long": ""
       },
       "contact": {
-        "email": "fffffffffff",
-        "phone": "fffffffffff"
+        "email": "fantasticfriseur@gmail.com",
+        "phone": "021516030543"
       },
       "aboutUs": {
-        "aboutTitle": "fffffffffff",
-        "aboutContent": "fffffffffffff"
+        "aboutTitle": "Wir stellen uns vor",
+        "aboutContent": "Eingebettet im Herzen von Krefeld, sind wir bei FANTASTIC Damen & Herren Friseur stolz darauf, ein fantastisches Team zu haben, das unglaubliche Behandlungen und einen unschlagbaren Kundenservice zu Preisen anbietet, hinter denen wir stehen können. Wir sind seit 2000 eine Hauptanlaufstelle für alle, die hochwertige Dienstleistungen zu erschwinglichen Preisen zu schätzen wissen.\n\n\n\nWas als kleine/s Friseursalon begann, hat sowohl an Größe als auch an Ansehen erheblich zugenommen. Kommen Sie noch heute vorbei oder vereinbaren Sie einen Termin mit einem unserer fantastischen Crew und erfahren Sie, warum unsere Kunden immer wiederkommen."
       },
       "headerPic": {
-        "picTitle": "f",
-        "picUrl": "fffffffffffff",
+        "picTitle": "",
+        "picUrl": "",
         "headerClaim": {
-          "claimTitle": "fffffffffffff",
-          "claimSubTitle": "ffffffff"
+          "claimTitle": "Deine Hare sind unsere Leidenschaft",
+          "claimSubTitle": "Haarschnitt, Styling und Färbung"
         }
       },
       "products": [
         {
           "id": 0,
-          "name": "ffff",
-          "price": "12",
-          "description": "ffffff"
+          "name": "Haarschnitt",
+          "price": "19,99 ",
+          "description": "Bis 1 Std."
+        },
+        {
+          "id": 1,
+          "name": "Färbung",
+          "price": "19,99 ",
+          "description": "Bis 1 Std."
+        },
+        {
+          "id": 2,
+          "name": "Styling",
+          "price": "19,99",
+          "description": "Bis 1 Std."
         }
       ],
       "id": 10
     },
     {
-      "id": 11,
-      "name": "dddddddd",
-      "category": "Restaurant",
-      "slogan": "ddddddddddddddd",
+      "name": "Friseur Ladies only",
+      "category": "Parpershop",
+      "slogan": "Ein Salon  zum Wohlfühlen",
+      "userId": 2,
       "address": {
-        "street": "ddddddddddd",
-        "housNo": "ddddddddddddddddddddddddd",
-        "postal": "dddddddddddd",
-        "city": "dddddddddddddd",
-        "land": "dddddddddddddd"
+        "street": "Richard-Wagner-Straße",
+        "housNo": "37",
+        "postal": "10585",
+        "city": "Berlin",
+        "land": "Deutschland",
+        "lat": "",
+        "long": ""
       },
       "contact": {
-        "email": "dddddddddddd",
-        "phone": "ddddddddd"
+        "email": "Friseur.Ladies.only@gmx.de",
+        "phone": "0049151 66564200"
       },
       "aboutUs": {
-        "aboutTitle": "dddddddddddddd",
-        "aboutContent": "dddddddd"
+        "aboutTitle": "Über mich",
+        "aboutContent": "Meine Berufsphilosphie zeichnet sich durch schöne Frisuren mit gesunden Haaren aus. Dazu verwende ich die richtigen Produkte für den jeweiligen  Haartyp.\n\n \nDanke an all die Kundinnen,die mir bisher ihr Vertrauen geschenkt haben und danke an alle, die künftig meine Kundin sein werden.\n \nIch freue mich auf Ihren Besuch in meinem \"Ladies only\" "
       },
       "headerPic": {
-        "picTitle": "d",
-        "picUrl": "ddddddddd",
+        "picTitle": "",
+        "picUrl": "",
         "headerClaim": {
-          "claimTitle": "dddddddddddddd",
-          "claimSubTitle": "dddddddddddddddddddddd"
+          "claimTitle": "Ein Salon  zum Wohlfühlen",
+          "claimSubTitle": "In einer femininen Atmosphäre kümmere ich mich um meine  Kundinnen."
         }
       },
       "products": [
         {
           "id": 0,
-          "name": "dddddd",
-          "price": "4",
-          "description": "dddddddddd"
+          "name": "Haarschnitt ",
+          "price": "60",
+          "description": "(inkl. Beratung+Styling)"
+        },
+        {
+          "id": 1,
+          "name": "Anlassfriseur",
+          "price": "50",
+          "description": "(inkl. Beratung+Styling)"
         }
-      ]
+      ],
+      "id": 11
     }
   ]
 }

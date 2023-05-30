@@ -10,34 +10,35 @@ form {
     border: 1px solid rgba($darkGray, 30%);
     border-radius: $radius;
 
-    legend {
+    > legend {
       padding: 0px 10px;
       margin-left: 10px;
       font-size: 20px;
       color: rgba($darkGray, 60%);
+      float: none;
+      display: inline-block;
+      width: auto !important;
+
       &.diesplayError {
         color: $red;
       }
       &.hide {
         display: none;
       }
+      h6 {
+        margin-bottom: 0px;
+      }
     }
   }
   &.addEditForm {
     display: flex;
     justify-content: space-between;
-    // align-items: baseline;
     flex-wrap: wrap;
     fieldset {
       display: flex;
       justify-content: space-between;
       flex-wrap: wrap;
       align-items: baseline;
-      width: calc(50% - 20px);
-
-      .porBox {
-        width: calc(50% - 20px);
-      }
 
       label {
         width: 190px;
@@ -48,9 +49,10 @@ form {
       input,
       select,
       textarea {
-        width: calc(100% - 200px);
+        // width: calc(100% - 200px);
         margin-left: 0px;
         margin-right: 0px;
+        margin-bottom: 10px;
         &.small {
           width: auto;
         }
@@ -65,12 +67,6 @@ form {
         width: 100%;
         margin-top: 30px;
         margin-bottom: 0px;
-      }
-    }
-    .contactAboutBox {
-      width: calc(50% - 20px);
-      fieldset {
-        width: 100%;
       }
     }
   }
@@ -98,9 +94,10 @@ select {
   width: 100%;
   padding: calc($basePdding * 0.5);
   margin: calc($baseDes * 0.2);
+  cursor: pointer;
   &.small {
     width: auto;
-    margin-left: 20px;
+    margin-right: 20px;
   }
 }
 

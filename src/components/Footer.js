@@ -1,14 +1,15 @@
 import React from "react";
+import { Col, Row, Container } from "react-bootstrap";
 
 const Footer = () => {
   return (
-    <div className="container  footerContainer">
-      <div className="row">
-        <div className="col">
+    <Container className="footerContainer">
+      <Row>
+        <Col sm="12">
           <h1 className="light">Shops Manager</h1>
-        </div>
-      </div>
-    </div>
+        </Col>
+      </Row>
+    </Container>
   );
 };
 

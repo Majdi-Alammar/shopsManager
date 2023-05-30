@@ -4,6 +4,8 @@ import { selectShopIds } from "./shopsSlice";
 import ShopsExcerpet from "./ShopsExcerpet";
 import { useGetShopsQuery } from "./shopsSlice";
 import { useState, useEffect } from "react";
+import { Container, Row, Col } from "react-bootstrap";
+import { Form } from "react-bootstrap";
 
 const initialState = [];
 
@@ -48,7 +50,7 @@ const ShopsList = () => {
     }
     if (content.length) {
       content = content.map((shopId) => (
-        <ShopsExcerpet key={shopId} shopId={shopId} />
+        <ShopsExcerpet key={shopId} shop={shops.entities[shopId]} />
       ));
     } else {
       content = "Es gibt kein Ergebnis ...";
@@ -71,72 +73,82 @@ const ShopsList = () => {
 
   return (
     <section>
-      <div className="filterContainer">
-        <select
-          id="filterCatSelect"
-          className="filterCatSelect small"
-          onChange={(e) => {
-            return onFilter(e, "category");
-          }}
-          value={filterItems.category}
-        >
-          <option value="all" defaultValue>
-            All Kategories
-          </option>
-          <option value="Kleidung Laden" defaultValue>
-            Kleidung Laden
-          </option>
-          <option value="Supermarkt" defaultValue>
-            Supermarkt
-          </option>
-          <option value="Restaurant" defaultValue>
-            Restaurant
-          </option>
-          <option value="Parpershop" defaultValue>
-            Parpershop
-          </option>
-        </select>
+      <Row>
+        <Col sm="12">
+          <div className="filterContainer">
+            <Form.Group controlId="shopCategory">
+              <Form.Select
+                id="filterCatSelect"
+                className="filterCatSelect small"
+                value={filterItems.category}
+                onChange={(e) => {
+                  return onFilter(e, "category");
+                }}
+              >
+                <option value="all" defaultValue>
+                  All Kategories
+                </option>
+                <option value="Kleidung Laden" defaultValue>
+                  Kleidung Laden
+                </option>
+                <option value="Supermarkt" defaultValue>
+                  Supermarkt
+                </option>
+                <option value="Restaurant" defaultValue>
+                  Restaurant
+                </option>
+                <option value="Parpershop" defaultValue>
+                  Parpershop
+                </option>
+              </Form.Select>
+            </Form.Group>
 
-        <select
-          id="filterCatSelect"
-          className="filterCatSelect small"
-          onChange={(e) => {
-            return onFilter(e, "city");
-          }}
-          value={filterItems.city}
-        >
-          <option value="all" defaultValue>
-            All Städte
-          </option>
-          <option value="Krefeld" defaultValue>
-            Krefeld
-          </option>
-          <option value="Düsseldorf" defaultValue>
-            Duesseldorf
-          </option>
-          <option value="Berlin" defaultValue>
-            Berlin
-          </option>
-        </select>
-        <div className="filterItemsContainer">
-          {Object.keys(filterItems).map((key) => {
-            if (filterItems[key] !== "all") {
-              return (
-                <p key={filterItems[key]} className="filterItem">
-                  <span>{filterItems[key]}</span>
-                  <span
-                    onClick={(e) => resetFilterItem(e, key)}
-                    className="delete"
-                  >
-                    X
-                  </span>
-                </p>
-              );
-            }
-          })}
-        </div>
-      </div>
-      <div className="teaserContainer">{content}</div>
+            <Form.Group controlId="shopCategory">
+              <Form.Select
+                id="filterCatSelect"
+                className="filterCatSelect small"
+                onChange={(e) => {
+                  return onFilter(e, "city");
+                }}
+                value={filterItems.city}
+              >
+                <option value="all" defaultValue>
+                  All Städte
+                </option>
+                <option value="Krefeld" defaultValue>
+                  Krefeld
+                </option>
+                <option value="Düsseldorf" defaultValue>
+                  Duesseldorf
+                </option>
+                <option value="Berlin" defaultValue>
+                  Berlin
+                </option>
+              </Form.Select>
+            </Form.Group>
+
+            <div className="filterItemsContainer">
+              {Object.keys(filterItems).map((key) => {
+                if (filterItems[key] !== "all") {
+                  return (
+                    <p key={filterItems[key]} className="filterItem">
+                      <span>{filterItems[key]}</span>
+                      <span
+                        onClick={(e) => resetFilterItem(e, key)}
+                        className="delete"
+                      >
+                        X
+                      </span>
+                    </p>
+                  );
+                }
+              })}
+            </div>
+          </div>
+        </Col>
+      </Row>
+
+      <Row className="teaserContainer">{content}</Row>
     </section>
   );
 };

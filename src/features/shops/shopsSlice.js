@@ -22,6 +22,18 @@ export const extendedApiSlice = apiSlice.injectEndpoints({
         ...result.ids.map((id) => ({ type: "Shop", id })),
       ],
     }),
+    getShopById: builder.query({
+      query: (id) => {
+        return `/shops?id=${id}`;
+      },
+      transformResponse: (responseData) => {
+        const loadedShop = responseData.map((shop) => {
+          return shop;
+        });
+        console.log("LoadedShop: " + loadedShop);
+        return shopsAdapter.setAll(initialState, loadedShop);
+      },
+    }),
     getShopsByUserId: builder.query({
       query: (id) => {
         return `/shops?userId=${id}`;
@@ -77,6 +89,7 @@ export const extendedApiSlice = apiSlice.injectEndpoints({
 });
 export const {
   useGetShopsQuery,
+  useGetShopByIdQuery,
   useGetShopsByUserIdQuery,
   useGetShopsByCategoryQuery,
   useAddNewShopMutation,

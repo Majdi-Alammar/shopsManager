@@ -4,88 +4,138 @@ import { useAddNewShopMutation } from "./shopsSlice";
 import { useGetUsersQuery } from "../users/usersSlice";
 import { useSelector } from "react-redux";
 import { selectCurrentUser } from "../auth/authSlice";
+import Form from "react-bootstrap/Form";
+import { Button } from "react-bootstrap";
 
 const AddShopForm = () => {
   const [addNewShop, { isLoading }] = useAddNewShopMutation();
   const navigate = useNavigate();
 
-  const [name, steName] = useState();
-  const [category, setCategory] = useState();
-  const [slogan, setSlogan] = useState();
-  // Addresse
-  const [housNo, setHousNo] = useState();
-  const [street, setStreet] = useState();
-  const [postal, setPostal] = useState();
-  const [city, setCity] = useState();
-  const [land, setLand] = useState();
-  const [long, setLong] = useState();
-  const [lat, setLat] = useState();
-
-  // Contact
-  const [email, setEmail] = useState();
-  const [phone, setPhone] = useState();
-
-  // About us
-  const [aboutTitle, setAboutTitle] = useState();
-  const [aboutContent, setAboutContent] = useState();
-
-  // header Pic
-  const [picTitle, setPicTitle] = useState();
-  const [picUrl, setPicUrl] = useState();
-  const [claimTitle, setClaimTitle] = useState();
-  const [claimSubTitle, setClaimSubTitle] = useState();
-
   // Products
   const [products, setProducts] = useState([]);
 
   // Ohner
-  const userId = useSelector(selectCurrentUser).id;
+  // const formData.userId = useSelector(selectCurrentUser).id;
 
+  const [formData, setFormData] = useState({
+    name: "",
+    category: "",
+    slogan: "",
+    userId: "",
+
+    address: {
+      street: "",
+      housNo: "",
+      postal: "",
+      city: "",
+      land: "",
+      lat: "",
+      long: "",
+    },
+    contact: {
+      email: "",
+      phone: "",
+    },
+    aboutUs: {
+      aboutTitle: "",
+      aboutContent: "",
+    },
+    headerPic: {
+      picTitle: "",
+      picUrl: "",
+      headerClaim: {
+        claimTitle: "",
+        claimSubTitle: "",
+      },
+    },
+    products: [],
+  });
+  formData.userId = useSelector(selectCurrentUser).id;
+  console.log(formData);
   // All Events
-  const onNameChanged = (e) => steName(e.target.value);
-  const onCategoryChanged = (e) => setCategory(e.target.value);
-  const onSloganChanged = (e) => setSlogan(e.target.value);
-  // const onOhnerChanged = (e) => setUserId(e.target.value);
-
-  // Events: Addresse
-  const onHousNoChanged = (e) => setHousNo(e.target.value);
-  const onStreetChanged = (e) => setStreet(e.target.value);
-  const onCityChanged = (e) => setCity(e.target.value);
-  const onPostalChanged = (e) => setPostal(e.target.value);
-  const onLandChanged = (e) => setLand(e.target.value);
-  const onLatChanged = (e) => setLat(e.target.value);
-  const onLongChanged = (e) => setLong(e.target.value);
-
-  // Events: Contact
-  const onEmailChanged = (e) => setEmail(e.target.value);
-  const onPhoneChanged = (e) => setPhone(e.target.value);
-
-  // Events: About us
-  const onAboutContentChanged = (e) => setAboutContent(e.target.value);
-  const onAboutTitleChanged = (e) => setAboutTitle(e.target.value);
-
-  // Events: header Pic
-  const onPicTitleChanged = (e) => setPicTitle(e.target.value);
-  const onPicUrlChanged = (e) => setPicUrl(e.target.value);
-  const onClaimTitleChanged = (e) => setClaimTitle(e.target.value);
-  const onClaimSubTitleChanged = (e) => setClaimSubTitle(e.target.value);
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    switch (name) {
+      case "picTitle":
+      case "picUrl": {
+        setFormData((prevData) => ({
+          ...prevData,
+          headerPic: { ...prevData.headerPic, [name]: value },
+        }));
+        break;
+      }
+      case "claimTitle":
+      case "claimSubTitle": {
+        setFormData((prevData) => ({
+          ...prevData,
+          headerPic: {
+            ...prevData.headerPic,
+            headerClaim: {
+              ...prevData.headerPic.headerClaim,
+              [name]: value,
+            },
+          },
+        }));
+        break;
+      }
+      case "aboutTitle":
+      case "aboutContent": {
+        setFormData((prevData) => ({
+          ...prevData,
+          aboutUs: { ...prevData.aboutUs, [name]: value },
+        }));
+        break;
+      }
+      case "email":
+      case "phone": {
+        setFormData((prevData) => ({
+          ...prevData,
+          contact: { ...prevData.contact, [name]: value },
+        }));
+        break;
+      }
+      case "street":
+      case "postal":
+      case "city":
+      case "land":
+      case "lat":
+      case "long":
+      case "housNo": {
+        setFormData((prevData) => ({
+          ...prevData,
+          address: { ...prevData.address, [name]: value },
+        }));
+        break;
+      }
+      default: {
+        setFormData((prevData) => ({
+          ...prevData,
+          [name]: value,
+        }));
+      }
+    }
+  };
 
   const onProductsChanged = (e, id, elem) => {
-    const newProducts = products.map((pro) => {
+    const newProducts = formData.products.map((pro) => {
       if (pro.id === Number(id)) {
         const newPro = { ...pro };
         newPro[elem] = e.target.value;
+        console.log(newPro);
         return newPro;
       } else {
         return pro;
       }
     });
-
-    setProducts([...newProducts]);
+    setFormData((prevData) => ({
+      ...prevData,
+      products: [...newProducts],
+    }));
+    // setProducts([...newProducts]);
   };
   const addNewProduct = (e) => {
     e.preventDefault();
-    const newProducts = [...products];
+    const newProducts = [...formData.products];
     let newId = -1;
     newProducts.map((pro) => {
       if (pro.id > newId) {
@@ -93,293 +143,351 @@ const AddShopForm = () => {
       }
       console.log(newId);
     });
-    newProducts.push({ id: newId + 1, name: "", price: 0, description: "" });
+    newProducts.push({ id: newId + 1, name: "", price: "", description: "" });
     console.log(newProducts);
     setProducts([...newProducts]);
+    setFormData((prevData) => ({
+      ...prevData,
+      products: [...newProducts],
+    }));
   };
 
   const canSave =
     [
-      name,
-      category,
-      slogan,
-      userId,
-      housNo,
-      street,
-      postal,
-      city,
-      email,
-      phone,
+      formData.name,
+      formData.category,
+      formData.slogan,
+      formData.userId,
+      formData.address.housNo,
+      formData.address.street,
+      formData.address.postal,
+      formData.address.city,
+      formData.contact.email,
+      formData.contact.phone,
     ].every(Boolean) && !isLoading;
-
+  // console.log(formData);
   const onSaveShopClicked = async () => {
     if (canSave) {
       try {
         await addNewShop({
-          userId,
-          name,
-          category,
-          slogan,
-          address: { street, housNo, postal, city, land },
-          contact: { email, phone },
-          aboutUs: { aboutTitle, aboutContent },
-          headerPic: {
-            picTitle,
-            picUrl,
-            headerClaim: { claimTitle, claimSubTitle },
-          },
-          products: [...products],
+          ...formData,
         }).unwrap();
-        steName("");
-        setCategory("");
-        setSlogan("");
-        // setUserId("");
-        navigate("/");
+        setFormData({
+          name: "",
+          category: "",
+          slogan: "",
+          userId: "",
+          lat: "",
+          long: "",
+          address: {
+            street: "",
+            housNo: "",
+            postal: "",
+            city: "",
+            land: "",
+          },
+          contact: {
+            email: "",
+            phone: "",
+          },
+          aboutUs: {
+            aboutTitle: "",
+            aboutContent: "",
+          },
+          headerPic: {
+            picTitle: "",
+            picUrl: "",
+            headerClaim: {
+              claimTitle: "",
+              claimSubTitle: "",
+            },
+          },
+          products: [],
+        });
+        navigate(`/user/${formData.userId}`);
       } catch (err) {
         console.error("Faild to save the Shop", err);
       }
     }
   };
 
-  let usersOptions;
-  // if (isSuccess) {
-  //   usersOptions = users.ids.map((id) => (
-  //     <option key={id} value={id}>
-  //       {users.entities[id].name}
-  //     </option>
-  //   ));
-  // }
-
-  const productsList = products.map((pro) => {
+  const productsList = formData.products.map((pro) => {
     return (
-      <fieldset className="porBox">
-        <legend>{pro.name}</legend>
-        <label htmlFor="productName">Produktname:</label>
-        <input
-          type="text"
-          id={`${pro.id}`}
-          name="productName"
-          value={pro.name}
-          onChange={(e) => onProductsChanged(e, pro.id, "name")}
-        />
-        <label htmlFor="productPrice">Preis:</label>
-        <input
-          type="text"
-          id={`${pro.id}-productPrice`}
-          name="productPrice"
-          value={pro.price}
-          onChange={(e) => onProductsChanged(e, pro.id, "price")}
-        />
-        <label htmlFor="productDescription">Beschreibung:</label>
-        <input
-          type="text"
-          id={`${pro.id}-productDescription`}
-          name="productDescription"
-          value={pro.description}
-          onChange={(e) => onProductsChanged(e, pro.id, "description")}
-        />
-      </fieldset>
+      <div className="col-lg-6" key={pro.id}>
+        <fieldset className="porBox row ">
+          <legend>{pro.name}</legend>
+          <Form.Group controlId={`${pro.id}`}>
+            <Form.Control
+              type="text"
+              placeholder="Produkt Name angeben"
+              value={pro.name}
+              onChange={(e) => onProductsChanged(e, pro.id, "name")}
+            />
+          </Form.Group>
+
+          <Form.Group c controlId={`${pro.id}-productPrice`}>
+            <Form.Control
+              type="text"
+              placeholder="Preis in Euro eingeben!"
+              value={pro.price}
+              onChange={(e) => onProductsChanged(e, pro.id, "price")}
+            />
+          </Form.Group>
+
+          <Form.Group controlId={`${pro.id}-productDescription`}>
+            <Form.Control
+              type="text"
+              placeholder="Beschreibung eingeben!"
+              value={pro.description}
+              onChange={(e) => onProductsChanged(e, pro.id, "description")}
+            />
+          </Form.Group>
+        </fieldset>
+      </div>
     );
   });
 
   return (
-    <section>
-      <h2>Laden Hinzufügen</h2>
-      <form className="addEditForm">
-        <fieldset name="Allgemein">
-          <legend>Allgemein</legend>
-          <label htmlFor="shopName">Shop Name*:</label>
-          <input
-            type="text"
-            id="shopName"
-            name="shopName"
-            value={name}
-            onChange={onNameChanged}
-          />
-          {/* <label htmlFor="shopOhner">Shop Ohner*:</label>
-          <select id="shopOhner" value={userId} onChange={onOhnerChanged}>
-            <option value="">Wählen Sie bitte</option>
-            {usersOptions}
-          </select> */}
-          <label htmlFor="shopCategory">Shop Category*:</label>
-          <select id="shopCategory" onChange={onCategoryChanged}>
-            <option value="">wählen Sie bitte</option>
-            <option value="Restaurant">Restaurant</option>
-            <option value="Supermarkt">Supermarkt</option>
-            <option value="Parpershop">Parpershop</option>
-          </select>
-          <label htmlFor="shopSlogan">Slogan:</label>
-          <textarea
-            id="shopSlogan"
-            name="shopSlogan"
-            value={slogan}
-            onChange={onSloganChanged}
-          />
-        </fieldset>
-        <fieldset name="headerPic">
-          <legend>Header</legend>
-          <label htmlFor="shopPicTitle">Bild Title:</label>
-          <input
-            type="text"
-            id="shopPicTitle"
-            name="shopPicTitle"
-            value={picTitle}
-            onChange={onPicTitleChanged}
-          />
-          <label htmlFor="shopPicUrl">Bild url:</label>
-          <input
-            type="text"
-            id="shopPicUrl"
-            name="shopPicUrl"
-            value={picUrl}
-            onChange={onPicUrlChanged}
-          />
-          <label htmlFor="shopClaimTitle">Claim Überschrift:</label>
-          <input
-            type="text"
-            id="shopClaimTitle"
-            name="shopClaimTitle"
-            value={claimTitle}
-            onChange={onClaimTitleChanged}
-          />
-          <label htmlFor="shopClaimSubTitle">Claim Unterschrift:</label>
-          <input
-            type="text"
-            id="shopClaimSubTitle"
-            name="shopClaimSubTitle"
-            value={claimSubTitle}
-            onChange={onClaimSubTitleChanged}
-          />
-        </fieldset>
+    <>
+      <div className="row">
+        <h2>Laden Hinzufügen</h2>
+      </div>
+      <Form className="addEditForm row">
+        <div className="col-lg-6">
+          <fieldset className="row" name="Allgemein">
+            <legend>Allgemein</legend>
+            <Form.Group className="mb-12" controlId="shopName">
+              <Form.Control
+                type="text"
+                placeholder="Ladenname angeben"
+                value={formData.name}
+                name="name"
+                onChange={handleChange}
+              />
+            </Form.Group>
 
-        <fieldset name="address">
-          <legend>Adresse</legend>
-          <label htmlFor="shopHousNo">Hausnummer:</label>
-          <input
-            type="text"
-            id="shopHousNo"
-            name="shopHousNo"
-            value={housNo}
-            onChange={onHousNoChanged}
-          />
-          <label htmlFor="shopStreet">Straße:</label>
-          <input
-            type="text"
-            id="shopStreet"
-            name="shopStreet"
-            value={street}
-            onChange={onStreetChanged}
-          />
-          <label htmlFor="shopCity">Stadt:</label>
-          <input
-            type="text"
-            id="shopCity"
-            name="shopCity"
-            value={city}
-            onChange={onCityChanged}
-          />
-          <label htmlFor="shopPostal">Postleitzahl:</label>
-          <input
-            type="text"
-            id="shopPostal"
-            name="shopPostal"
-            value={postal}
-            onChange={onPostalChanged}
-          />
-          <label htmlFor="shopLand">Land:</label>
-          <input
-            type="text"
-            id="shopLand"
-            name="shopLand"
-            value={land}
-            onChange={onLandChanged}
-          />
-          <label htmlFor="shopLat">Lat:</label>
-          <input
-            type="text"
-            id="shopLat"
-            name="shopLat"
-            value={lat}
-            onChange={onLatChanged}
-          />
-          <label htmlFor="shopLong">Long:</label>
-          <input
-            type="text"
-            id="shopLong"
-            name="shopLong"
-            value={long}
-            onChange={onLongChanged}
-          />
-        </fieldset>
-        <div className="contactAboutBox">
-          <fieldset name="contact">
-            <legend>Kontaktdaten</legend>
-            <label htmlFor="shopEmail">Email:</label>
-            <input
-              type="text"
-              id="shopEmail"
-              name="shopEmail"
-              value={email}
-              onChange={onEmailChanged}
-            />
-            <label htmlFor="shopPhone">Telefon:</label>
-            <input
-              type="text"
-              id="shopPhone"
-              name="shopPhone"
-              value={phone}
-              onChange={onPhoneChanged}
-            />
-          </fieldset>
-          <fieldset name="aboutUs">
-            <legend>Wir über uns</legend>
-            <label htmlFor="shopAboutTitle">Title:</label>
-            <input
-              type="text"
-              id="shopAboutTitle"
-              name="shopAboutTitle"
-              value={aboutTitle}
-              onChange={onAboutTitleChanged}
-            />
-            <label htmlFor="shopAboutContent">Content:</label>
-            <textarea
-              id="shopAboutContent"
-              rows={6}
-              name="shopAboutContent"
-              value={aboutContent}
-              onChange={onAboutContentChanged}
-            />
+            <Form.Group controlId="shopCategory">
+              {/* <Form.Label>Shop Category:</Form.Label> */}
+              <Form.Control
+                as="select"
+                value={formData.category}
+                onChange={handleChange}
+                name="category"
+              >
+                <option value="">Kategori auswählen</option>
+                <option value="Restaurant">Restaurant</option>
+                <option value="Supermarkt">Supermarkt</option>
+                <option value="Parpershop">Parpershop</option>
+              </Form.Control>
+            </Form.Group>
+            <Form.Group controlId="shopSlogan">
+              <Form.Control
+                as="textarea"
+                rows={4}
+                value={formData.slogan}
+                placeholder="Slogan angeben"
+                onChange={handleChange}
+                name="slogan"
+              />
+            </Form.Group>
           </fieldset>
         </div>
+
+        <div className="col-lg-6">
+          <fieldset className="row" name="headerPic">
+            <legend>Header</legend>
+            <Form.Group className="mb-12" controlId="shopPicUrl">
+              <Form.Control
+                type="text"
+                placeholder="Headerbild auswählen"
+                value={formData.headerPic.picUrl}
+                onChange={handleChange}
+                name="picUrl"
+              />
+            </Form.Group>
+            <Form.Group className="mb-12" controlId="shopPicTitle">
+              <Form.Control
+                type="text"
+                placeholder="Title des Headerbilds angeben"
+                value={formData.headerPic.picTitle}
+                onChange={handleChange}
+                name="picTitle"
+              />
+            </Form.Group>
+
+            <Form.Group className="mb-12" controlId="shopClaimTitle">
+              <Form.Control
+                type="text"
+                placeholder="Claim Überschrift"
+                value={formData.headerPic.headerClaim.claimTitle}
+                onChange={handleChange}
+                name="claimTitle"
+              />
+            </Form.Group>
+            <Form.Group className="mb-12" controlId="shopClaimSubTitle">
+              <Form.Control
+                type="text"
+                placeholder="Claim Unterschrift"
+                value={formData.headerPic.headerClaim.claimSubTitle}
+                onChange={handleChange}
+                name="claimSubTitle"
+              />
+            </Form.Group>
+          </fieldset>
+        </div>
+        <div className="col-lg-6">
+          <fieldset className="row" name="address">
+            <legend>Adresse</legend>
+            <Form.Group className="mb-12" controlId="shopHousNo">
+              <Form.Control
+                type="text"
+                placeholder="Hausnummer"
+                value={formData.address.housNo}
+                onChange={handleChange}
+                name="housNo"
+              />
+            </Form.Group>
+            <Form.Group className="mb-12" controlId="shopStreet">
+              <Form.Control
+                type="text"
+                placeholder="Straße"
+                value={formData.address.street}
+                onChange={handleChange}
+                name="street"
+              />
+            </Form.Group>
+            <Form.Group className="mb-12" controlId="shopCity">
+              <Form.Control
+                type="text"
+                placeholder="Stadt"
+                value={formData.address.city}
+                onChange={handleChange}
+                name="city"
+              />
+            </Form.Group>
+            <Form.Group className="mb-12" controlId="shopPostal">
+              <Form.Control
+                type="text"
+                placeholder="Postleitzahl"
+                value={formData.address.postal}
+                onChange={handleChange}
+                name="postal"
+              />
+            </Form.Group>
+            <Form.Group className="mb-12" controlId="shopLand">
+              <Form.Control
+                type="text"
+                placeholder="Land"
+                value={formData.address.land}
+                onChange={handleChange}
+                name="land"
+              />
+            </Form.Group>
+            <Form.Group className="mb-12" controlId="shopLat">
+              <Form.Control
+                type="text"
+                placeholder="Lat"
+                value={formData.address.lat}
+                onChange={handleChange}
+                name="lat"
+              />
+            </Form.Group>
+            <Form.Group className="mb-12" controlId="shopLong">
+              <Form.Control
+                type="text"
+                placeholder="Long"
+                value={formData.address.long}
+                onChange={handleChange}
+                name="long"
+              />
+            </Form.Group>
+          </fieldset>
+        </div>
+        <div className="col-lg-6">
+          <div className="contactAboutBox row">
+            <fieldset className="col-ms-12" name="contact ">
+              <legend>Kontaktdaten</legend>
+              <Form.Group className="row" controlId="shopEmail">
+                <Form.Control
+                  type="email"
+                  placeholder="Email"
+                  value={formData.contact.email}
+                  onChange={handleChange}
+                  name="email"
+                />
+              </Form.Group>
+              <Form.Group className="row" controlId="shopPhone">
+                <Form.Control
+                  type="text"
+                  placeholder="Telefon"
+                  value={formData.contact.phone}
+                  onChange={handleChange}
+                  name="phone"
+                />
+              </Form.Group>
+            </fieldset>
+            <fieldset className="col-ms-12" name="aboutUs">
+              <legend>Wir über uns</legend>
+              <Form.Group className="row" controlId="shopAboutTitle">
+                <Form.Control
+                  type="text"
+                  placeholder="Title"
+                  value={formData.aboutUs.aboutTitle}
+                  onChange={handleChange}
+                  name="aboutTitle"
+                />
+              </Form.Group>
+              <Form.Group className="row" controlId="shopAboutContent">
+                <Form.Control
+                  as="textarea"
+                  rows={4}
+                  value={formData.aboutUs.aboutContent}
+                  onChange={handleChange}
+                  name="aboutContent"
+                  placeholder="Text bis 4000 Bochstaben! "
+                />
+              </Form.Group>
+            </fieldset>
+          </div>
+        </div>
         {productsList.length > 0 ? (
-          <div className="productsBox">
-            <div className="fullWidth" name="Products">
-              <hr />
-              <h4>Produkte</h4>
+          <div className="col-lg-12">
+            <fieldset className="row">
+              <legend>
+                <h6>Produkte</h6>
+              </legend>
               {productsList}
-              <button className="btn" onClick={addNewProduct}>
-                Produkt Hinzufügen
-              </button>
-            </div>
+              <div className="col-lg-12">
+                <Button variant="primary" onClick={addNewProduct}>
+                  Neuen Produkt Hinzufügen
+                </Button>
+              </div>
+            </fieldset>
           </div>
         ) : (
-          <div className="productsBox">
-            <div className="fullWidth" name="Products">
-              <hr />
-              <h4>Produkte</h4>
+          <div className="col-lg-12">
+            <fieldset className="productsBox ">
+              <legend>
+                <h6>Produkte</h6>
+              </legend>
               <p>Es gibt keine Produkte zurzeit</p>
-              <button className="btn" onClick={addNewProduct}>
-                Produkt Hinzufügen
-              </button>
-            </div>
+              <Button variant="primary" onClick={addNewProduct}>
+                Neuen Produkt Hinzufügen
+              </Button>
+            </fieldset>
           </div>
         )}
-
-        <button type="button" onClick={onSaveShopClicked} disabled={!canSave}>
-          Save Shop
-        </button>
-      </form>
-    </section>
+        <div className="col-lg-12">
+          <Button
+            variant="primary"
+            onClick={onSaveShopClicked}
+            disabled={!canSave}
+          >
+            Laden Speichern
+          </Button>
+        </div>
+      </Form>
+    </>
   );
 };
 

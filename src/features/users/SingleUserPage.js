@@ -4,6 +4,8 @@ import { Link, useParams } from "react-router-dom";
 import { useGetShopsByUserIdQuery } from "../shops/shopsSlice";
 import { useGetUsersQuery } from "../users/usersSlice";
 import ShopOhner from "../shops/ShopOhner";
+import { Row } from "react-bootstrap";
+import ShopsExcerpet from "../shops/ShopsExcerpet";
 
 const SingleUserPage = () => {
   const { userId } = useParams();
@@ -38,29 +40,21 @@ const SingleUserPage = () => {
     content = <p>Loading...</p>;
   } else if (isSuccess && isSuccessUser) {
     const { ids, entities } = shopsForUser;
-    content = (
-      <section>
-        <h2>
-          <span className="block">Alle Laden von </span> {user?.name}{" "}
-          {user?.lastName}
-        </h2>
+    let shops = ids.map((shopId) => (
+      <ShopsExcerpet key={Number(shopId)} shop={entities[shopId]} />
+    ));
 
-        <div className="teaserContainer">
-          {ids.map((id) => (
-            <div className="linkContainer" key={entities[id].id}>
-              <Link to={`/shop/${entities[id].id}`}>
-                <h4>
-                  {entities[id].name}
-                  <span className="block span4">{entities[id].category}</span>
-                </h4>
-                <p>{entities[id].slogan}</p>
-                <p className="city">{entities[id].city ?? "City"}</p>
-                <ShopOhner userId={entities[id].userId} />
-              </Link>
-            </div>
-          ))}
-        </div>
-      </section>
+    content = (
+      <>
+        <Row>
+          <h2>
+            <span className="block">Alle Laden von </span> {user?.name}{" "}
+            {user?.lastName}
+          </h2>
+        </Row>
+
+        <Row className="teaserContainer">{shops}</Row>
+      </>
     );
   } else if (isError || isErrorUser) {
     content = <p>{error || errorUser}</p>;

@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { selectCurrentUser } from "../features/auth/authSlice";
 import { logOut } from "../features/auth/authSlice";
 import React from "react";
+import { Col, Row, Container } from "react-bootstrap";
 
 const Header = () => {
   const user = useSelector(selectCurrentUser);
@@ -17,9 +18,9 @@ const Header = () => {
   };
   return (
     <header className="Header">
-      <div className="container headerContainer ">
-        <div className="row">
-          <div className="col">
+      <Container className="headerContainer">
+        <Row>
+          <Col sm="12" className="headerCol">
             <h1 className="light">Shops Manager</h1>
             <nav className="headerNavi">
               <ul>
@@ -49,9 +50,14 @@ const Header = () => {
                 )}
               </ul>
             </nav>
-          </div>
+          </Col>
+        </Row>
+      </Container>
+      {/* <div className="container headerContainer ">
+        <div className="row">
+          <div className="col"></div>
         </div>
-      </div>
+      </div> */}
     </header>
   );
 };
