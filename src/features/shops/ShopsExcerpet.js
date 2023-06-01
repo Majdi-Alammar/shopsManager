@@ -3,54 +3,82 @@ import { Link } from "react-router-dom";
 import { useGetShopsQuery } from "./shopsSlice";
 import { useGetShopByIdQuery } from "./shopsSlice";
 import ShopOhner from "./ShopOhner";
-import { Card, Row, Col } from "react-bootstrap";
+import { Card, Row, Col, CardImg, Button } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
+import restImg from "../../images/restaurant.jpg";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { icon } from "@fortawesome/fontawesome-svg-core";
+import {
+  faEnvelope,
+  faLocationDot,
+  faPhoneVolume,
+} from "@fortawesome/free-solid-svg-icons";
 
 function ShopsExcerpet({ shop }) {
-  // console.log("Schop:" + shop);
-  // let {
-  //   data: shop,
-  //   isLoading,
-  //   isSuccess,
-  //   isError,
-  //   error,
-  // } = useGetShopByIdQuery(shopId);
-
-  // let shop1 = shop.entities[shopId];
-  let content = "Loading ...";
-
-  // if (isSuccess) {
-  //   // console.log("Success ...");
-  //   // console.log(shop1);
-  //   content = (
-
-  //   );
-  // }
-  // if (isError) {
-  //   console.log("error:" + error);
-  // }
-
   return (
     <Col lg="6" xl="4">
-      <Card
-        className="linkContainer"
-        style={{ color: "#0000ee" }}
-        key={shop.id}
-      >
-        <Link to={`/shop/${shop.id}`} title={shop.name + "-" + shop.category}>
-          <h3>
-            {shop.name}
-            <span className="block span4">
-              <i>{shop.category}</i>
-            </span>
-          </h3>
-          <p className="slogan">{shop.slogan}</p>
-          {/* <p className="city">
-          <strong>Stadt:</strong> {shop.address.city ?? ""}
-        </p> */}
-          <ShopOhner userId={shop.userId} />
-        </Link>
-      </Card>
+      <div className="cardsContainer">
+        <Card className="backSide">
+          <Card.Body>
+            <Card.Text>
+              <div className="contactContainer">
+                <p>
+                  <strong>
+                    <FontAwesomeIcon icon={faEnvelope} />
+                  </strong>
+                  {shop.contact.email ?? ""}
+                </p>
+                <p>
+                  <strong>
+                    <FontAwesomeIcon icon={faPhoneVolume} />
+                  </strong>
+                  {shop.contact.phone ?? ""}
+                </p>
+
+                <p>
+                  <strong>
+                    <FontAwesomeIcon icon={faLocationDot} />
+                  </strong>
+                  <span className="inline-block">
+                    <span>
+                      {`${shop.address.street ?? ""} ${
+                        shop.address.housNo ?? ""
+                      }`}
+                    </span>
+                    <span className="block">
+                      {`${shop.address.postal ?? ""} ${
+                        shop.address.city ?? ""
+                      }`}
+                    </span>
+                  </span>
+                </p>
+              </div>
+              <ShopOhner userId={shop.userId} />
+            </Card.Text>
+            <Link
+              className="btn btn-primary"
+              to={`/shop/${shop.id}`}
+              title={shop.name + "-" + shop.category}
+            >
+              Jetzt besuchen
+            </Link>
+          </Card.Body>
+        </Card>
+        <Card className="frontSide" key={shop.id}>
+          <Card.Img variant="top" src={restImg} />
+          <Card.Body>
+            <div className="catBox">
+              <p className="catName">{shop.category}</p>
+            </div>
+            <div className="body-title h4">
+              {shop.name}
+              <span className="block span4">
+                <i>{shop.slogan}</i>
+              </span>
+            </div>
+          </Card.Body>
+        </Card>
+      </div>
     </Col>
   );
 }

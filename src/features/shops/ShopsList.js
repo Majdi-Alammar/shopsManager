@@ -10,7 +10,6 @@ import { Form } from "react-bootstrap";
 const initialState = [];
 
 const ShopsList = () => {
-  // const [category, setCategory] = useState("all");
   const [filterItems, setFilterItems] = useState({
     category: "all",
     city: "all",
