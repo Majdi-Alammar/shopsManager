@@ -5,7 +5,10 @@ import { useGetShopByIdQuery } from "./shopsSlice";
 import ShopOhner from "./ShopOhner";
 import { Card, Row, Col, CardImg, Button } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
-import restImg from "../../images/restaurant.jpg";
+import restaurantImg from "../../images/restaurant.jpg";
+import supremarktImg from "../../images/supermarkt.jpg";
+import friseurImg from "../../images/friseur.jpg";
+import kleidungLadenImg from "../../images/kleidung-laden.jpg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { icon } from "@fortawesome/fontawesome-svg-core";
 import {
@@ -15,8 +18,30 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 function ShopsExcerpet({ shop }) {
+  const checkImage = (cat) => {
+    let cardImg = friseurImg;
+    switch (cat) {
+      case "Restaurant": {
+        cardImg = restaurantImg;
+        break;
+      }
+      case "Supermarkt": {
+        cardImg = supremarktImg;
+        break;
+      }
+      case "Kleidung Laden": {
+        cardImg = kleidungLadenImg;
+        break;
+      }
+      default: {
+        cardImg = friseurImg;
+      }
+    }
+    return cardImg;
+  };
+
   return (
-    <Col lg="6" xl="4">
+    <Col md="6" lg="4" xl="43">
       <div className="cardsContainer">
         <Card className="backSide">
           <Card.Body>
@@ -65,7 +90,7 @@ function ShopsExcerpet({ shop }) {
           </Card.Body>
         </Card>
         <Card className="frontSide" key={shop.id}>
-          <Card.Img variant="top" src={restImg} />
+          <Card.Img variant="top" src={checkImage(shop.category)} />
           <Card.Body>
             <div className="catBox">
               <p className="catName">{shop.category}</p>

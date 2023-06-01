@@ -71,7 +71,7 @@ const ShopsList = () => {
   };
 
   return (
-    <section>
+    <>
       <Row>
         <Col sm="12">
           <div className="filterContainer">
@@ -145,10 +145,11 @@ const ShopsList = () => {
             </div>
           </div>
         </Col>
+        <hr className="col" />
       </Row>
 
       <Row className="teaserContainer">{content}</Row>
-    </section>
+    </>
   );
 };
 

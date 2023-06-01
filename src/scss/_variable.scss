@@ -5,7 +5,7 @@ $darkGray: rgb(37, 37, 37);
 $lightGray: rgb(133, 133, 133);
 $red: rgb(128, 5, 5);
 $green: rgb(5, 85, 5);
-$light: rgb(241, 241, 241);
+$light: rgb(255, 255, 255);
 $span: rgb(139, 139, 139);
 
 $duration: 10s;
@@ -25,10 +25,10 @@ $secondaryFont: "Fira Sans";
 $secondaryFontSize: 20px;
 $arabicLineHeiht: 32px;
 
-$h1FontSize: 40px;
+$h1FontSize: 35px;
 $h1LineHeight: 50px;
 
-$h2FontSize: 35px;
+$h2FontSize: 32px;
 $h2LineHeight: 40px;
 
 $h3FontSize: 30px;
@@ -94,7 +94,7 @@ h6,
   }
 
   &.noMargin {
-    margin-bottom: 0px;
+    margin-bottom: 0px !important;
   }
 
   &.onBG {
@@ -154,6 +154,11 @@ h6,
   color: $light;
   background-color: $darkGray;
   text-decoration: none;
+  transition: 400ms;
+  &:hover {
+    background-color: $black;
+    color: $light !important;
+  }
   &.light {
     background-color: $light;
     border: 1px solid darken($light, 50);

@@ -10,7 +10,7 @@ const Layout = () => {
     <>
       <Header />
       <main className="App">
-        <Container>
+        <Container className="con">
           <Outlet />
         </Container>
       </main>

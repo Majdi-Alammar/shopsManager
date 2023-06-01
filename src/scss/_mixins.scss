@@ -6,7 +6,6 @@
   to {
     top: -150px;
   }
-
 }
 
 @keyframes changeCollor {
@@ -20,5 +19,22 @@
 
   100% {
     background-color: $light;
+  }
+}
+
+@keyframes appear {
+  0% {
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  50% {
+    visibility: visible;
+    opacity: 0.5;
+  }
+
+  100% {
+    visibility: visible;
+    opacity: 1;
   }
 }

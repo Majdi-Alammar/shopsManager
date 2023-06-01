@@ -3,7 +3,7 @@ import { Col, Row, Container } from "react-bootstrap";
 
 const Footer = () => {
   return (
-    <Container className="footerContainer">
+    <Container className="con footerContainer">
       <Row>
         <Col sm="12">
           <h1 className="light">Shops Manager</h1>

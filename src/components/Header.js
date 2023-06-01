@@ -18,12 +18,20 @@ const Header = () => {
   };
   return (
     <header className="Header">
-      <Container className="headerContainer">
+      <Container className="con headerContainer">
         <Row>
-          <Col sm="12" className="headerCol">
+          <Col
+            lg="4"
+            className="d-flex logoCol justify-content-center justify-content-lg-start align-items-lg-center "
+          >
             <h1 className="light">Shops Manager</h1>
+          </Col>
+          <Col
+            lg="8"
+            className="headerCol justify-content-center justify-content-lg-end"
+          >
             <nav className="headerNavi">
-              <ul>
+              <ul d-flex>
                 <li>
                   <Link to="/">Startseite</Link>
                 </li>
@@ -53,11 +61,6 @@ const Header = () => {
           </Col>
         </Row>
       </Container>
-      {/* <div className="container headerContainer ">
-        <div className="row">
-          <div className="col"></div>
-        </div>
-      </div> */}
     </header>
   );
 };
