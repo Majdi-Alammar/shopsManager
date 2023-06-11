@@ -36,15 +36,6 @@ const SingleShopPage = () => {
 
     return (
       <div className="mainSide">
-        {/* <div className="fixedButton">
-          {true ? (
-            <Link className="fixedBtn btn" to={`/shop/edit/${shop.id}`}>
-              Bearbeiten
-            </Link>
-          ) : (
-            ""
-          )}
-        </div> */}
         <div className="siteHeader">
           <Row className="flex-row align-items-center">
             <Col xs={12} md={6} xl={4} className="d-flex justify-content-start">

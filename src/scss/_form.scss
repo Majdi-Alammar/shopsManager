@@ -1,3 +1,18 @@
+::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: rgba($darkGray, 30%) !important;
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: red;
+}
+
+::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: red;
+}
 form {
   fieldset {
     padding: 10px;
@@ -49,13 +64,15 @@ form {
       input,
       select,
       textarea {
-        // width: calc(100% - 200px);
         margin-left: 0px;
         margin-right: 0px;
         margin-bottom: 10px;
+        border: 0px;
         &.small {
           width: auto;
         }
+        // &:active {
+        // }
       }
     }
     .fullWidth {
@@ -69,17 +86,28 @@ form {
         margin-bottom: 0px;
       }
     }
+    input,
+    textarea,
+    select,
+    email {
+      border: 1px dashed rgba($darkGray, 30%) !important;
+    }
   }
+}
+input,
+textarea,
+select,
+email {
+  border-radius: $radius;
 }
 input {
   &[type="text"],
-  &[type="number"] {
+  &[type="number"],
+  &[type="email"] {
     line-height: 30px;
     width: 100%;
     padding: calc($basePdding * 0.5);
     margin: calc($baseDes * 0.2);
-    border-radius: $radius;
-    // min-width: 500px;
   }
 }
 textarea {
@@ -95,9 +123,22 @@ select {
   padding: calc($basePdding * 0.5);
   margin: calc($baseDes * 0.2);
   cursor: pointer;
+  background-image: url(../images/selectArrow.svg);
+  background-repeat: no-repeat;
+  background-size: 18px;
+  padding-right: 24px !important;
+  background-position: calc(100% - 6px) center;
+  background-color: rgba($darkGray, 30%);
+
   &.small {
     width: auto;
     margin-right: 20px;
+  }
+  &:invalid {
+    color: rgba($darkGray, 30%);
+  }
+  &:valid {
+    color: $darkGray;
   }
 }
 
